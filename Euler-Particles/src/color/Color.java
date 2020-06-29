@@ -20,7 +20,7 @@ public class Color {
     }
 
     private void initColor(int color) {
-        p.colorMode(p.RGB, 255);
+        p.colorMode(PApplet.RGB, 255);
         r = (int)p.red(color);
         g = (int)p.green(color);
         b = (int)p.blue(color);
@@ -28,7 +28,7 @@ public class Color {
     }
 
     public int getColor() {
-        p.colorMode(p.RGB, 255);
+        p.colorMode(PApplet.RGB, 255);
         return p.color(r, g, b, a);
     }
 
