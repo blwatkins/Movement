@@ -12,6 +12,7 @@ public abstract class Shape {
     private Color color;
 
     public Shape(PApplet p) {
+        this.p = p;
         position = new PVector(p.random(p.width), p.random(p.height));
         speed = new PVector(p.random(-5, 5), p.random(-5, 5));
         color = new Color(p, p.color(0, 0, 255));
