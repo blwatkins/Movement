@@ -27,6 +27,7 @@ public class EulerParticles extends PApplet {
 
     public void draw() {
         background(0);
+
         for (Shape s: shapes) {
             s.display();
             s.move();
