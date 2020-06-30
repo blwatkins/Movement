@@ -18,6 +18,22 @@ public abstract class Shape {
         color = new Color(p, p.color(0, 0, 255));
     }
 
+    public PApplet getPApplet() {
+        return p;
+    }
+
+    public PVector getPosition() {
+        return position;
+    }
+
+    public PVector getSpeed() {
+        return speed;
+    }
+
+    public int getColor() {
+        return color.getColor();
+    }
+
     public void setColor(int color) {
         this.color.setColor(color);
     }
