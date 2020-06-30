@@ -1,12 +1,11 @@
 import processing.core.PApplet;
 
-import shape.Circle;
-import shape.Polygon;
 import shape.Shape;
-import shape.Star;
+import shape.ShapeFactory;
 
 public class EulerParticles extends PApplet {
     Shape[] shapes;
+    ShapeFactory shapeFactory;
 
     public static void main(String[] args) {
         String[] processingArgs = {"EulerParticles"};
@@ -18,10 +17,11 @@ public class EulerParticles extends PApplet {
     }
 
     public void setup() {
+        shapeFactory = new ShapeFactory(this);
         shapes = new Shape[100];
 
         for (int i = 0; i < shapes.length; i++) {
-            shapes[i] = new Star(this);
+            shapes[i] = shapeFactory.getShape();
         }
     }
 

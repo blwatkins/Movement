@@ -14,6 +14,9 @@ public class ShapeFactory {
 
     public ShapeFactory(PApplet p) {
         this.p = p;
+        type = CIRCLE;
+        sides = 0;
+        randomize();
     }
 
     public Shape getShape() {
