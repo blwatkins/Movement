@@ -32,8 +32,9 @@ public class Polygon extends RadialShape {
         }
     }
 
-    public PVector[] getVertices() {
-        return vertices;
+    protected void setVertices(PVector[] vertices) {
+        this.vertices = new PVector[vertices.length];
+        System.arraycopy(vertices, 0, this.vertices, 0, vertices.length);
     }
 
     public void display() {
