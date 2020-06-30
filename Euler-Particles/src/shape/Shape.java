@@ -34,6 +34,10 @@ public abstract class Shape {
         return color.getColor();
     }
 
+    public void setPosition(PVector position) {
+        this.position = position.copy();
+    }
+
     public void setColor(int color) {
         this.color.setColor(color);
     }
@@ -42,5 +46,8 @@ public abstract class Shape {
 
     public void move() {
         position.add(speed);
+        bounce();
     }
+
+    protected abstract void bounce();
 }
