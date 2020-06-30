@@ -7,8 +7,8 @@ public class Star extends Polygon {
 
     public Star(PApplet p) {
         super(p);
-        int sides = (int)p.random(4, 12);
-        initVertices(sides);
+        int points = (int)p.random(4, 12);
+        initVertices(points);
     }
 
     public Star(PApplet p, int points) {
