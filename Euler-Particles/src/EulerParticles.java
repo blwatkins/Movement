@@ -50,6 +50,8 @@ public class EulerParticles extends PApplet {
             showTrails = !showTrails;
         } else if (key == 'd') {
             changeColors();
+        } else if (key == 'f') {
+            saveFrame("output/########.png");
         }
     }
 
