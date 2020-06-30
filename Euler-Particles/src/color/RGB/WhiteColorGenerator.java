@@ -9,7 +9,7 @@ public class WhiteColorGenerator extends RGBColorGenerator {
     }
 
     public int randomColor() {
-        p.colorMode(p.RGB, 255);
+        p.colorMode(PApplet.RGB, 255);
         int grey = (int)p.random(100, 255);
         return p.color(grey);
     }

@@ -9,7 +9,7 @@ public class TopColorGenerator extends HSBColorGenerator {
     }
 
     public int mapColor(float value, float minValue, float maxValue, int saturation, int brightness) {
-        p.colorMode(p.HSB, 360);
+        p.colorMode(PApplet.HSB, 360);
         int hue = (int)PApplet.map(value, minValue, maxValue, 180, 360);
         return p.color(hue, saturation, brightness);
     }

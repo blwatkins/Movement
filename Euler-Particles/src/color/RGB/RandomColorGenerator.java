@@ -9,7 +9,7 @@ public class RandomColorGenerator extends RGBColorGenerator {
     }
 
     public int randomColor() {
-        p.colorMode(p.RGB, 255);
+        p.colorMode(PApplet.RGB, 255);
         int r = (int)p.random(255);
         int g = (int)p.random(255);
         int b = (int)p.random(255);
