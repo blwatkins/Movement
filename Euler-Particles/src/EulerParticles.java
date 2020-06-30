@@ -3,7 +3,6 @@
 // Press 's' to activate fading trails
 // Press 'd' to change color scheme
 
-import color.Color;
 import processing.core.PApplet;
 
 import color.ColorGenerator;
