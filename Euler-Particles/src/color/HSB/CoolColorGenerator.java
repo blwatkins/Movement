@@ -2,9 +2,9 @@ package color.HSB;
 
 import processing.core.PApplet;
 
-public class SoftColorGenerator extends HSBColorGenerator {
+public class CoolColorGenerator extends HSBColorGenerator {
 
-    public SoftColorGenerator(PApplet p) {
+    public CoolColorGenerator(PApplet p) {
         super(p);
     }
 
