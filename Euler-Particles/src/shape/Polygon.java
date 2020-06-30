@@ -18,7 +18,6 @@ public class Polygon extends RadialShape {
     }
 
     protected void initVertices(int sides) {
-        PApplet p = getPApplet();
         float theta = 0;
         sides = PApplet.constrain(sides, 3, 20);
         vertices = new PVector[sides];
@@ -50,7 +49,7 @@ public class Polygon extends RadialShape {
             p.vertex(vertex.x, vertex.y);
         }
 
-        p.endShape(p.CLOSE);
+        p.endShape(PApplet.CLOSE);
         p.popMatrix();
     }
 }

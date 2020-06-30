@@ -17,7 +17,6 @@ public class Star extends Polygon {
 
     protected void initVertices(int points) {
         float theta = 0;
-        PApplet p = getPApplet();
         points = PApplet.constrain(points, 3, 20);
         PVector[] vertices = new PVector[points * 2];
         float deltaTheta = PApplet.TWO_PI / (points * 2);
