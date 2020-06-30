@@ -3,6 +3,7 @@ import processing.core.PApplet;
 import shape.Circle;
 import shape.Polygon;
 import shape.Shape;
+import shape.Star;
 
 public class EulerParticles extends PApplet {
     Shape[] shapes;
@@ -20,7 +21,7 @@ public class EulerParticles extends PApplet {
         shapes = new Shape[100];
 
         for (int i = 0; i < shapes.length; i++) {
-            shapes[i] = new Polygon(this);
+            shapes[i] = new Star(this);
         }
     }
 
