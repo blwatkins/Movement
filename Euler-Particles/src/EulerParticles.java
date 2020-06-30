@@ -2,6 +2,7 @@
 // Press 'a' to change background to black or white
 // Press 's' to activate fading trails
 // Press 'd' to change color scheme
+// Press 'f' to save the frame
 
 import processing.core.PApplet;
 
