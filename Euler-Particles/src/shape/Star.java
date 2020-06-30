@@ -20,7 +20,7 @@ public class Star extends Polygon {
         PApplet p = getPApplet();
         points = PApplet.constrain(points, 3, 20);
         PVector[] vertices = new PVector[points * 2];
-        float deltaTheta = p.TWO_PI / (points * 2);
+        float deltaTheta = PApplet.TWO_PI / (points * 2);
 
         for (int i = 0; i < vertices.length; i++) {
             float r = getRadius();

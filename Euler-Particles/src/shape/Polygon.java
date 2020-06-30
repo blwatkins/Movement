@@ -22,7 +22,7 @@ public class Polygon extends RadialShape {
         float theta = 0;
         sides = PApplet.constrain(sides, 3, 20);
         vertices = new PVector[sides];
-        float deltaTheta = p.TWO_PI / sides;
+        float deltaTheta = PApplet.TWO_PI / sides;
 
         for (int i = 0; i < sides; i++) {
             float x = PApplet.cos(theta) * getRadius();
