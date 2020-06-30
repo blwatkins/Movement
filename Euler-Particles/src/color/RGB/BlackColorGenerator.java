@@ -8,7 +8,7 @@ public class BlackColorGenerator extends RGBColorGenerator {
         super(p);
     }
 
-    public int randomColor() {
+    public int getRandomColor() {
         p.colorMode(PApplet.RGB, 255);
         int grey = (int)p.random(100);
         return p.color(grey);

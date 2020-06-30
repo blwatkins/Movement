@@ -8,7 +8,7 @@ public class YellowColorGenerator extends RGBColorGenerator {
         super(p);
     }
 
-    public int randomColor() {
+    public int getRandomColor() {
         p.colorMode(PApplet.RGB, 255);
         int r = (int)p.random(100, 255);
         int g = (int)p.random(100, 255);

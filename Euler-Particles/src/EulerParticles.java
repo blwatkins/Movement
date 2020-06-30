@@ -1,15 +1,21 @@
 // Particle Generator
 // Press 'a' to change background to black or white
 // Press 's' to activate fading trails
+// Press 'd' to change color scheme
 
+import color.Color;
 import processing.core.PApplet;
 
+import color.ColorGenerator;
+import color.ColorGeneratorFactory;
 import shape.Shape;
 import shape.ShapeFactory;
 
 public class EulerParticles extends PApplet {
     Shape[] shapes;
     ShapeFactory shapeFactory;
+    ColorGeneratorFactory colorGeneratorFactory;
+    ColorGenerator colorGenerator;
     boolean hasBlackBackground;
     boolean showTrails;
 
@@ -24,13 +30,12 @@ public class EulerParticles extends PApplet {
 
     public void setup() {
         shapeFactory = new ShapeFactory(this);
+        colorGeneratorFactory = new ColorGeneratorFactory(this);
+        colorGenerator = colorGeneratorFactory.getRandomColorGenerator();
         shapes = new Shape[100];
         hasBlackBackground = true;
         showTrails = false;
-
-        for (int i = 0; i < shapes.length; i++) {
-            shapes[i] = shapeFactory.getShape();
-        }
+        createShapes();
     }
 
     public void draw() {
@@ -44,6 +49,17 @@ public class EulerParticles extends PApplet {
             hasBlackBackground = !hasBlackBackground;
         } else if (key == 's') {
             showTrails = !showTrails;
+        } else if (key == 'd') {
+            changeColors();
+        }
+    }
+
+    private void createShapes() {
+
+        for (int i = 0; i < shapes.length; i++) {
+            int color = colorGenerator.getRandomColor();
+            shapes[i] = shapeFactory.getShape();
+            shapes[i].setColor(color);
         }
     }
 
@@ -69,6 +85,15 @@ public class EulerParticles extends PApplet {
         for (Shape s: shapes) {
             s.display();
             s.move();
+        }
+    }
+
+    private void changeColors() {
+        colorGenerator = colorGeneratorFactory.getRandomColorGenerator();
+
+        for (Shape s: shapes) {
+            int color = colorGenerator.getRandomColor();
+            s.setColor(color);
         }
     }
 }

@@ -10,7 +10,7 @@ public abstract class HSBColorGenerator extends ColorGenerator {
         super(p);
     }
 
-    public int randomColor() {
+    public int getRandomColor() {
         p.colorMode(PApplet.HSB, 360);
         int saturation = (int)p.random(100, 360);
         int brightness = (int)p.random(100, 360);
