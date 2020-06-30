@@ -1,3 +1,7 @@
+// Particle Generator
+// Press 'a' to change background to black or white
+// Press 's' to activate fading trails
+
 import processing.core.PApplet;
 
 import shape.Shape;
