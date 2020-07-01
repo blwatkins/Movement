@@ -12,12 +12,12 @@ import shape.Shape;
 import shape.ShapeFactory;
 
 public class EulerParticles extends PApplet {
-    Shape[] shapes;
-    ShapeFactory shapeFactory;
-    ColorGeneratorFactory colorGeneratorFactory;
-    ColorGenerator colorGenerator;
-    boolean hasBlackBackground;
-    boolean showTrails;
+    private Shape[] shapes;
+    private ShapeFactory shapeFactory;
+    private ColorGeneratorFactory colorGeneratorFactory;
+    private ColorGenerator colorGenerator;
+    private boolean hasBlackBackground;
+    private boolean showTrails;
 
     public static void main(String[] args) {
         String[] processingArgs = {"EulerParticles"};
