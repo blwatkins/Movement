@@ -6,12 +6,16 @@ class Shape {
         this.color = new Color(color(0, 0, 255));
     }
 
+    setColor(color) {
+        this.color.setColor(color);
+    }
+
     display() {
 
     }
 
     move() {
-        this.position.add(speed);
+        this.position.add(this.speed);
         this.bounce();
     }
 
