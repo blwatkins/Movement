@@ -6,14 +6,6 @@ class Shape {
         this.color = new Color(color(0, 0, 255));
     }
 
-    getColor() {
-        return this.color.getColor();
-    }
-
-    setColor(color) {
-        this.color.setColor(color);
-    }
-
     display() {
 
     }
