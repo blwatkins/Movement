@@ -32,6 +32,8 @@ function keyTyped() {
         hasBlackBackground = !hasBlackBackground;
     } else if (key == 's') {
         showTrails = !showTrails;
+    } else if (key == 'd') {
+        changeColors();
     }
 }
 
@@ -51,6 +53,7 @@ function createInstructions() {
     let instructions = [];
     instructions.push(createElement('li', "Press the 'a' key to change the background to black or white"));
     instructions.push(createElement('li', "Press the 's' key to activate and deactivate trails"));
+    instructions.push(createElement('li', "Press the 'd' key to change the color scheme"));
     div.id('instructions');
     h1.parent(div);
     instructionList.parent(div);
@@ -80,5 +83,14 @@ function displayShapes() {
     shapes.forEach((shape) => {
         shape.display();
         shape.move();
+    });
+}
+
+function changeColors() {
+    colorGenerator = colorGeneratorFactory.getRandomColorGenerator();
+    
+    shapes.forEach((shape) => {
+        let color = colorGenerator.randomColor();
+        shape.setColor(color);
     });
 }
