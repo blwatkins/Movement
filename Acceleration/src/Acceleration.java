@@ -1,4 +1,8 @@
-import color.Color;
+// Acceleration
+// Press 'a' to change the background to black or white
+// Press 's' to turn trails on and off
+// Press 'd' to change the color scheme
+
 import color.ColorGenerator;
 import color.ColorGeneratorFactory;
 import processing.core.PApplet;
@@ -16,13 +20,14 @@ public class Acceleration extends PApplet {
     }
 
     public void settings() {
-        size(800, 800);
+        fullScreen();
+        //size(800, 800);
     }
 
     public void setup() {
         colorGeneratorFactory = new ColorGeneratorFactory(this);
         colorGenerator = colorGeneratorFactory.getRandomColorGenerator();
-        circles = new Circle[50];
+        circles = new Circle[200];
         hasBlackBackground = true;
         isShowingTrails = false;
         createCircles();
