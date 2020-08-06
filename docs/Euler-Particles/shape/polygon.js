@@ -8,7 +8,7 @@ class Polygon extends RadialShape {
 
     _initVertices(sides) {
         let theta = 0;
-        sides = constrain(3, 20);
+        sides = constrain(sides, 3, 20);
         let deltaTheta = TWO_PI / sides;
 
         for (let i = 0; i < sides; i++) {
@@ -27,7 +27,7 @@ class Polygon extends RadialShape {
         beginShape();
 
         this.vertices.forEach((v) => {
-            vertex(v);
+            vertex(v.x, v.y);
         });
 
         endShape(CLOSE);
