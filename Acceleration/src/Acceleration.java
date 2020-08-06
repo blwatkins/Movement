@@ -4,9 +4,11 @@ import color.ColorGeneratorFactory;
 import processing.core.PApplet;
 
 public class Acceleration extends PApplet {
-    private Circle[] circles;
     private ColorGenerator colorGenerator;
     private ColorGeneratorFactory colorGeneratorFactory;
+    private Circle[] circles;
+    private boolean hasBlackBackground;
+    private boolean isShowingTrails;
 
     public static void main(String[] args) {
         String[] processingArgs = {"Acceleration"};
@@ -21,6 +23,8 @@ public class Acceleration extends PApplet {
         colorGeneratorFactory = new ColorGeneratorFactory(this);
         colorGenerator = colorGeneratorFactory.getRandomColorGenerator();
         circles = new Circle[50];
+        hasBlackBackground = true;
+        isShowingTrails = false;
         createCircles();
     }
 
@@ -32,8 +36,10 @@ public class Acceleration extends PApplet {
     public void keyPressed() {
 
         if (key == 'a') {
-
+            hasBlackBackground = !hasBlackBackground;
         } else if (key == 's') {
+            isShowingTrails = !isShowingTrails;
+        } else if (key == 'd') {
             changeColorScheme();
         }
     }
@@ -49,7 +55,18 @@ public class Acceleration extends PApplet {
     }
 
     private void displayBackground() {
-        background(0);
+        int color = color(255);
+
+        if (hasBlackBackground) {
+            color = color(0);
+        }
+
+        if (isShowingTrails) {
+            fill(color, 25);
+            rect(-10, -10, width + 10, height + 10);
+        } else {
+            background(color);
+        }
     }
 
     private void displayCircles() {
