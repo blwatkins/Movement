@@ -5,6 +5,7 @@ var shapes;
 var shapeCount;
 var hasBlackBackground;
 var showTrails;
+var hasAlpha;
 var colorGenerator;
 var colorGeneratorFactory;
 var shapeFactory;
@@ -16,6 +17,7 @@ function setup() {
     shapeCount = 100;
     hasBlackBackground = true;
     showTrails = false;
+    hasAlpha = false;
     colorGeneratorFactory = new ColorGeneratorFactory();
     colorGenerator = colorGeneratorFactory.getRandomColorGenerator();
     shapeFactory = new ShapeFactory();
@@ -30,12 +32,15 @@ function draw() {
 
 function keyTyped() {
 
-    if (key == 'a') {
+    if (key === 'a') {
         hasBlackBackground = !hasBlackBackground;
-    } else if (key == 's') {
+    } else if (key === 's') {
         showTrails = !showTrails;
-    } else if (key == 'd') {
+    } else if (key === 'd') {
         changeColors();
+    } else if (key === 'f') {
+        hasAlpha = !hasAlpha;
+        applyAlpha();
     }
 }
 
@@ -56,6 +61,7 @@ function createInstructions() {
     instructions.push(createElement('li', "Press the 'a' key to change the background to black or white"));
     instructions.push(createElement('li', "Press the 's' key to activate and deactivate trails"));
     instructions.push(createElement('li', "Press the 'd' key to change the color scheme"));
+    instructions.push(createElement('li', "Press the 'f' key to apply a transparency effect"));
     div.id('instructions');
     h1.parent(div);
     instructionList.parent(div);
@@ -95,4 +101,19 @@ function changeColors() {
         let color = colorGenerator.randomColor();
         shape.setColor(color);
     });
+
+    applyAlpha();
+}
+
+function applyAlpha() {
+    let alpha = 255;
+
+    if (hasAlpha) {
+        alpha = 150;
+    }
+
+    shapes.forEach((shape) => {
+        shape.setAlpha(alpha);
+    });
+    
 }

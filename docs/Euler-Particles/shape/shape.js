@@ -10,6 +10,10 @@ class Shape {
         this.color.setColor(color);
     }
 
+    setAlpha(alpha) {
+        this.color.setAlpha(alpha);
+    }
+
     display() {
 
     }
