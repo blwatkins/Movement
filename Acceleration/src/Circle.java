@@ -16,7 +16,7 @@ public class Circle {
 
     public Circle(PApplet p) {
         this.p = p;
-        radius = 10;
+        radius = 5;
         position = new PVector(p.random(radius, p.width - radius), p.random(radius, p.height - radius));
         speed = new PVector(p.random(-5, 5), p.random(-5, 5));
         acceleration = new PVector(0, 0);
@@ -24,5 +24,11 @@ public class Circle {
         maxSpeed = 8;
         maxAcceleration = 0.5f;
         deltaAcceleration = 0.2f;
+    }
+
+    public void display() {
+        p.fill(color.getColor());
+        p.noStroke();
+        p.ellipse(position.x, position.y, radius * 2, radius * 2);
     }
 }
