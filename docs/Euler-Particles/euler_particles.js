@@ -40,7 +40,7 @@ function keyTyped() {
 function createShapes() {
 
     for (let i = 0; i < shapeCount; i++) {
-        let shape = new Polygon(9);
+        let shape = new Star(5);
         shape.setColor(colorGenerator.randomColor());
         shapes.push(shape);
     }
