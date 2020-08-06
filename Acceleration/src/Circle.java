@@ -26,6 +26,10 @@ public class Circle {
         deltaAcceleration = 0.2f;
     }
 
+    public void setColor(int color) {
+        this.color.setColor(color);
+    }
+
     public void display() {
         p.fill(color.getColor());
         p.noStroke();
