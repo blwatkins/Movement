@@ -20,14 +20,13 @@ public class Acceleration extends PApplet {
     }
 
     public void settings() {
-        fullScreen();
-        //size(800, 800);
+        size(800, 800);
     }
 
     public void setup() {
         colorGeneratorFactory = new ColorGeneratorFactory(this);
         colorGenerator = colorGeneratorFactory.getRandomColorGenerator();
-        circles = new Circle[200];
+        circles = new Circle[50];
         hasBlackBackground = true;
         isShowingTrails = false;
         createCircles();
