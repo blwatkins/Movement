@@ -4,6 +4,7 @@
 var shapes;
 var shapeCount;
 var hasBlackBackground;
+var showTrails;
 var colorGenerator;
 var colorGeneratorFactory;
 
@@ -13,6 +14,7 @@ function setup() {
     shapes = [];
     shapeCount = 100;
     hasBlackBackground = true;
+    showTrails = false;
     colorGeneratorFactory = new ColorGeneratorFactory();
     colorGenerator = colorGeneratorFactory.getRandomColorGenerator();
     createShapes();
@@ -28,6 +30,8 @@ function keyTyped() {
 
     if (key == 'a') {
         hasBlackBackground = !hasBlackBackground;
+    } else if (key == 's') {
+        showTrails = !showTrails;
     }
 }
 
@@ -56,13 +60,18 @@ function createInstructions() {
 }
 
 function displayBackground() {
-    let c = color(255);
+    let color = 255;
 
     if (hasBlackBackground) {
-        c = color(0);
+        color = 0;
     }
 
-    background(c);
+    if (showTrails) {
+        fill(color, 25);
+        rect(-10, -10, width + 10, height + 10);
+    } else {
+        background(color);
+    }
 }
 
 function displayShapes() {
