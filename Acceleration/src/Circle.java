@@ -35,4 +35,41 @@ public class Circle {
         p.noStroke();
         p.ellipse(position.x, position.y, radius * 2, radius * 2);
     }
+
+    public void move() {
+        incrementVectors();
+        constrainVectors();
+        bounce();
+    }
+
+    private void incrementVectors() {
+        position.add(speed);
+        speed.add(acceleration);
+        float deltaAccelerationX = p.random(-deltaAcceleration, deltaAcceleration);
+        float deltaAccelerationY = p.random(-deltaAcceleration, deltaAcceleration);
+        acceleration.add(new PVector(deltaAccelerationX, deltaAccelerationY));
+    }
+
+    private void constrainVectors() {
+        constrainVector(speed, -maxSpeed, maxSpeed);
+        constrainVector(acceleration, -maxAcceleration, maxAcceleration);
+    }
+
+    private void constrainVector(PVector vector, float minValue, float maxValue) {
+        float x = PApplet.constrain(vector.x, minValue, maxValue);
+        float y = PApplet.constrain(vector.y, minValue, maxValue);
+        vector.set(x, y);
+    }
+
+    private void bounce() {
+        if (position.x + radius >= p.width || position.x - radius <= 0) {
+            speed.x *= -1;
+            position.x = PApplet.constrain(position.x, radius, p.width - radius);
+        }
+
+        if (position.y + radius >= p.height || position.y - radius <= 0) {
+            speed.y *= -1;
+            position.y = PApplet.constrain(position.y, radius, p.height - radius);
+        }
+    }
 }

@@ -56,6 +56,7 @@ public class Acceleration extends PApplet {
 
         for (Circle circle: circles) {
             circle.display();
+            circle.move();
         }
     }
 
