@@ -7,6 +7,7 @@ var hasBlackBackground;
 var showTrails;
 var colorGenerator;
 var colorGeneratorFactory;
+var shapeFactory;
 
 function setup() {
     createCanvas(windowWidth-20, windowHeight-20);
@@ -17,6 +18,7 @@ function setup() {
     showTrails = false;
     colorGeneratorFactory = new ColorGeneratorFactory();
     colorGenerator = colorGeneratorFactory.getRandomColorGenerator();
+    shapeFactory = new ShapeFactory();
     createShapes();
     createInstructions();
 }
@@ -40,7 +42,7 @@ function keyTyped() {
 function createShapes() {
 
     for (let i = 0; i < shapeCount; i++) {
-        let shape = new Star(5);
+        let shape = shapeFactory.getShape();
         shape.setColor(colorGenerator.randomColor());
         shapes.push(shape);
     }
