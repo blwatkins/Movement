@@ -2,7 +2,7 @@ class Circle {
 
     constructor() {
         this.radius = 5;
-        this.postion = createVector(random(this.radius, width - radius), random(this.radius, height - radius));
+        this.position = createVector(random(this.radius, width - this.radius), random(this.radius, height - this.radius));
         this.speed = createVector(random(-5, 5), random(-5, 5));
         this.acceleration = createVector(0, 0);
         this.color = new Color(color(0, 0, 255));
@@ -18,7 +18,7 @@ class Circle {
     display() {
         fill(this.color.getColor());
         noStroke();
-        ellipse(this.position.x, this.postion.y, radius * 2, radius * 2);
+        ellipse(this.position.x, this.position.y, this.radius * 2, this.radius * 2);
     }
 
     move() {
@@ -48,16 +48,16 @@ class Circle {
 
     _bounce() {
 
-        if (this.postion.x + this.radius >= width || this.postion.x - this.radius <= 0) {
+        if (this.position.x + this.radius >= width || this.position.x - this.radius <= 0) {
             this.speed.x *= -1;
             let x = constrain(this.position.x, 0, width);
-            this.postion.set(x, this.postion.y);
+            this.position.set(x, this.position.y);
         }
 
         if (this.position.y + this.radius >= height || this.position.y - this.radius <= 0) {
             this.speed.y *= -1;
             let y = constrain(this.position.y, 0, height);
-            this.position.set(this.postion.x, y);
+            this.position.set(this.position.x, y);
         }
     }
 }
