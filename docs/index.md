@@ -21,3 +21,5 @@ Circles that accelerate and bounce off the edges of the screen
 [Online Interactive Version](Acceleration/index.html)
 
 [Java Code](https://github.com/blwatkins/Movement/tree/master/Acceleration/src)
+
+[p5.js Code](https://github.com/blwatkins/Movement/tree/master/docs/Acceleration)
