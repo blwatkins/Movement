@@ -1,6 +1,6 @@
 class CyanColorGenerator extends RGBColorGenerator {
 
-    randomColor() {
+    getRandomColor() {
         colorMode(RGB, 255);
         let r = int(random(50, 100));
         let g = int(random(100, 255));

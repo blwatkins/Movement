@@ -1,6 +1,6 @@
 class RGBColorGenerator {
 
-    randomColor() {
+    getRandomColor() {
         colorMode(RGB, 255);
         return color(0);
     }

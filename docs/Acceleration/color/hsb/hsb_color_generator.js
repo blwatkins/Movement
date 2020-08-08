@@ -1,6 +1,6 @@
 class HSBColorGenerator {
 
-    randomColor() {
+    getRandomColor() {
         colorMode(HSB, 360);
         let saturation = int(random(100, 360));
         let brightness = int(random(100, 360));
