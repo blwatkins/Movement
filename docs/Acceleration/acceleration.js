@@ -1,6 +1,7 @@
 // Acceleration Sketch
 // Press 'a' to change the background to black or white
 // Press 's' to turn the trails on and off
+// Press 'd' to change the color scheme
 
 var circles;
 var hasBlackBackground;
@@ -17,6 +18,7 @@ function setup() {
     colorGeneratorFactory = new ColorGeneratorFactory();
     colorGenerator = colorGeneratorFactory.getRandomColorGenerator();
     createCircles();
+    createInstructions();
 }
 
 function draw() {
@@ -43,6 +45,23 @@ function createCircles() {
         circle.setColor(color);
         circles.push(circle);
     }
+}
+
+function createInstructions() {
+    let div = createElement('div');
+    let h1 = createElement('h1', 'Instructions');
+    let instructionList = createElement('ul');
+    let instructions = [];
+    instructions.push(createElement('li', "Press the 'a' key to change the background to black or white"));
+    instructions.push(createElement('li', "Press the 's' key to activate and deactivate trails"));
+    instructions.push(createElement('li', "Press the 'd' key to change the color scheme"));
+    div.id('instructions');
+    h1.parent(div);
+    instructionList.parent(div);
+
+    instructions.forEach((instruction) => {
+        instruction.parent(instructionList);
+    });
 }
 
 function displayBackground() {
