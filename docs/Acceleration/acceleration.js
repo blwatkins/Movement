@@ -5,6 +5,8 @@
 var circles;
 var hasBlackBackground;
 var isShowingTrails;
+var colorGeneratorFactory;
+var colorGenerator;
 
 function setup() {
     createCanvas(windowWidth-20, windowHeight-20);
@@ -12,6 +14,8 @@ function setup() {
     circles = [];
     hasBlackBackground = true;
     isShowingTrails = false;
+    colorGeneratorFactory = new ColorGeneratorFactory();
+    colorGenerator = colorGeneratorFactory.getRandomColorGenerator();
     createCircles();
 }
 
@@ -26,6 +30,8 @@ function keyTyped() {
         hasBlackBackground = !hasBlackBackground;
     } else if (key === 's') {
         isShowingTrails = !isShowingTrails;
+    } else if (key === 'd') {
+        changeColorScheme();
     }
 }
 
@@ -33,6 +39,8 @@ function createCircles() {
 
     for (let i = 0; i < 100; i++) {
         let circle = new Circle();
+        let color = colorGenerator.getRandomColor();
+        circle.setColor(color);
         circles.push(circle);
     }
 }
@@ -57,5 +65,14 @@ function displayCircles() {
     circles.forEach((circle) => {
         circle.display();
         circle.move();
+    });
+}
+
+function changeColorScheme() {
+    colorGenerator = colorGeneratorFactory.getRandomColorGenerator();
+
+    circles.forEach((circle) => {
+        let color = colorGenerator.getRandomColor();
+        circle.setColor(color);
     });
 }
