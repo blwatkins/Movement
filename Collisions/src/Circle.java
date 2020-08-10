@@ -35,6 +35,17 @@ public class Circle {
         bounce();
     }
 
+    public void collideAndBounce(Circle circle) {
+        float totalRadius = radius + circle.radius;
+        PVector difference = PVector.sub(position, circle.position);
+        float distance = difference.mag();
+        boolean hasCollision = distance <= totalRadius;
+
+        if (hasCollision) {
+            bounce(circle);
+        }
+    }
+
     private void incrementVectors() {
         position.add(velocity);
     }
@@ -50,5 +61,21 @@ public class Circle {
             velocity.y *= -1;
             position.y = PApplet.constrain(position.y, 0, p.height);
         }
+    }
+
+    private void bounce(Circle circle) {
+        float totalRadius = radius + circle.radius;
+        PVector difference = PVector.sub(position, circle.position);
+        float distance = difference.mag();
+        float distanceCorrection = (totalRadius - distance) / 2;
+        PVector correctionVector = difference.normalize().mult(distanceCorrection);
+        position.add(correctionVector);
+        circle.position.sub(correctionVector);
+        float tempVelocityX = velocity.x;
+        float tempVelocityY = velocity.y;
+        velocity.x = (((mass - circle.mass) * velocity.x) + (2 * circle.mass * circle.velocity.x)) / (mass + circle.mass);
+        circle.velocity.x = (((circle.mass - mass) * circle.velocity.x) + (2 * mass * tempVelocityX)) / (mass + circle.mass);
+        velocity.y = (((mass - circle.mass) * velocity.y) + (2 * circle.mass * circle.velocity.y)) / (mass + circle.mass);
+        circle.velocity.y = (((circle.mass - mass) * circle.velocity.y) + (2 * mass * tempVelocityY)) / (mass + circle.mass);
     }
 }
