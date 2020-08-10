@@ -1,3 +1,6 @@
+// Collisions
+// Press 'a' to change background to black or white
+
 import processing.core.PApplet;
 
 import color.ColorGenerator;
@@ -7,6 +10,7 @@ public class Collisions extends PApplet {
     private Circle[] circles;
     private ColorGeneratorFactory colorGeneratorFactory;
     private ColorGenerator colorGenerator;
+    private boolean hasBlackBackground;
 
     public static void main(String[] args) {
         String[] processingArgs = {"Collisions"};
@@ -21,12 +25,20 @@ public class Collisions extends PApplet {
         circles = new Circle[20];
         colorGeneratorFactory = new ColorGeneratorFactory(this);
         colorGenerator = colorGeneratorFactory.getRandomColorGenerator();
+        hasBlackBackground = true;
         createCircles();
     }
 
     public void draw() {
         displayBackground();
         displayCircles();
+    }
+
+    public void keyPressed() {
+
+        if (key == 'a') {
+            hasBlackBackground = !hasBlackBackground;
+        }
     }
 
     private void createCircles() {
@@ -40,7 +52,13 @@ public class Collisions extends PApplet {
     }
 
     private void displayBackground() {
-        background(0);
+        int color = color(255);
+
+        if (hasBlackBackground) {
+            color = color(0);
+        }
+
+        background(color);
     }
 
     private void displayCircles() {
