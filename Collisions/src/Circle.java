@@ -13,7 +13,7 @@ public class Circle {
 
     public Circle(PApplet p) {
         this.p = p;
-        radius = p.random(5, 50);
+        radius = p.random(5, 75);
         mass = radius;
         position = new PVector(p.random(radius, p.width - radius), p.random(radius, p.height - radius));
         velocity = new PVector(p.random(-5, 5), p.random(-5, 5));
