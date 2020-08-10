@@ -32,6 +32,7 @@ public class Collisions extends PApplet {
     public void draw() {
         displayBackground();
         displayCircles();
+        checkForCircleCollision();
     }
 
     public void keyPressed() {
@@ -66,6 +67,16 @@ public class Collisions extends PApplet {
         for (Circle circle: circles) {
             circle.display();
             circle.move();
+        }
+    }
+
+    private void checkForCircleCollision() {
+
+        for (int i = 0; i < circles.length; i++) {
+
+            for (int k = i + 1; k < circles.length; k++) {
+                circles[i].collideAndBounce(circles[k]);
+            }
         }
     }
 }
