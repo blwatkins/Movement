@@ -26,4 +26,6 @@ Circles that accelerate and bounce off the edges of the screen
 
 ## Collisions
 
+Circles that move around and bounce off the edges of the screen and each other
+
 [Java Code](https://github.com/blwatkins/Movement/tree/master/Collisions/src)
