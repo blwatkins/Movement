@@ -12,6 +12,7 @@ function setup() {
 function draw() {
     displayBackground();
     displayCircles();
+    checkForCircleCollisions();
 }
 
 function createCircles() {
@@ -32,4 +33,14 @@ function displayCircles() {
         circle.display();
         circle.move();
     });
+}
+
+function checkForCircleCollisions() {
+
+    for (let i = 0; i < circles.length; i++) {
+
+        for (let k = i; k < circles.length; k++) {
+            circles[i].collideAndBounce(circles[k]);
+        }
+    }
 }

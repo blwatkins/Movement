@@ -86,6 +86,6 @@ class Circle {
         let circleVelocityX = (((circle.getMass() - this.mass) * circle.getVelocity().x) + (2 * this.mass * tempVelocityX)) / (this.mass + circle.getMass());
         let circleVelocityY = (((circle.getMass() - this.mass) * circle.getVelocity().y) + (2 * this.mass * tempVelocityY)) / (this.mass + circle.getMass());
         this.velocity.set(velocityX, velocityY);
-        this.circle.getVelocity().set(circleVelocityX, circleVelocityY);
+        circle.getVelocity().set(circleVelocityX, circleVelocityY);
     }
 }
