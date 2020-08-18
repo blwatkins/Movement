@@ -1,5 +1,7 @@
 // Collisions
 // Press 'a' to change background to black or white
+// Press 's' to turn trails on or off
+// Press 'd' to change the color scheme
 
 import processing.core.PApplet;
 
@@ -11,6 +13,7 @@ public class Collisions extends PApplet {
     private ColorGeneratorFactory colorGeneratorFactory;
     private ColorGenerator colorGenerator;
     private boolean hasBlackBackground;
+    private boolean isShowingTrails;
 
     public static void main(String[] args) {
         String[] processingArgs = {"Collisions"};
@@ -22,10 +25,11 @@ public class Collisions extends PApplet {
     }
 
     public void setup() {
-        circles = new Circle[20];
+        circles = new Circle[10];
         colorGeneratorFactory = new ColorGeneratorFactory(this);
         colorGenerator = colorGeneratorFactory.getRandomColorGenerator();
         hasBlackBackground = true;
+        isShowingTrails = false;
         createCircles();
     }
 
@@ -38,7 +42,11 @@ public class Collisions extends PApplet {
     public void keyPressed() {
 
         if (key == 'a') {
-            hasBlackBackground = !hasBlackBackground;
+            toggleBackgroundColor();
+        } else if (key == 's') {
+            toggleTrails();
+        } else if (key == 'd') {
+            changeColorScheme();
         }
     }
 
@@ -59,7 +67,12 @@ public class Collisions extends PApplet {
             color = color(0);
         }
 
-        background(color);
+        if (isShowingTrails) {
+            fill(color, 25);
+            rect(-10, -10, width + 10, height + 10);
+        } else {
+            background(color);
+        }
     }
 
     private void displayCircles() {
@@ -78,5 +91,23 @@ public class Collisions extends PApplet {
                 circles[i].collideAndBounce(circles[k]);
             }
         }
+    }
+
+    private void toggleBackgroundColor() {
+        hasBlackBackground = !hasBlackBackground;
+    }
+
+    private void toggleTrails() {
+        isShowingTrails = !isShowingTrails;
+    }
+
+    private void changeColorScheme() {
+        colorGenerator = colorGeneratorFactory.getRandomColorGenerator();
+
+        for (Circle circle: circles) {
+            int color = colorGenerator.getRandomColor();
+            circle.setColor(color);
+        }
+
     }
 }
