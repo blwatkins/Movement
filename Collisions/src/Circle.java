@@ -54,12 +54,12 @@ public class Circle {
 
         if (position.x + radius >= p.width || position.x - radius <= 0) {
             velocity.x *= -1;
-            position.x = PApplet.constrain(position.x, 0, p.width);
+            position.x = PApplet.constrain(position.x, radius, p.width - radius);
         }
 
         if (position.y + radius >= p.height || position.y - radius <= 0) {
             velocity.y *= -1;
-            position.y = PApplet.constrain(position.y, 0, p.height);
+            position.y = PApplet.constrain(position.y, radius, p.height - radius);
         }
     }
 
