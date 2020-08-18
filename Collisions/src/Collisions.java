@@ -108,6 +108,5 @@ public class Collisions extends PApplet {
             int color = colorGenerator.getRandomColor();
             circle.setColor(color);
         }
-
     }
 }
