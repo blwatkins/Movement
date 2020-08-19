@@ -3,12 +3,14 @@
 
 var circles;
 var hasBlackBackground;
+var isShowingTrails;
 
 function setup() {
     createCanvas(windowWidth-20, windowHeight-20);
     frameRate(60);
     circles = [];
     hasBlackBackground = true;
+    isShowingTrails = false;
     createCircles();
     createInstructions();
 }
@@ -23,6 +25,8 @@ function keyTyped() {
 
     if (key === 'a') {
         toggleBackgroundColor();
+    } else if (key === 's') {
+        toggleTrails();
     }
 }
 
@@ -58,7 +62,13 @@ function displayBackground() {
         color = 0;
     }
 
-    background(color);
+    if (isShowingTrails) {
+        fill(color, 25);
+        rect(-10, -10, width + 10, height + 10);
+    } else {
+        background(color);
+    }
+    
 }
 
 function displayCircles() {
@@ -81,4 +91,8 @@ function checkForCircleCollisions() {
 
 function toggleBackgroundColor() {
     hasBlackBackground = !hasBlackBackground;
+}
+
+function toggleTrails() {
+    isShowingTrails = !isShowingTrails;
 }
